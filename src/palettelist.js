@@ -35,6 +35,9 @@ const styles = {
 }
 
 class palettelist extends Component{
+    gotopal(id){
+        this.props.history.push(`/palette/${id}`)
+    }
   render(){
       const {palette, classes} = this.props
       return(
@@ -45,7 +48,7 @@ class palettelist extends Component{
                   </nav>
                   <div className={classes.palettes}>
                     {palette.map(pa=>(
-                        <MiniPalette {...pa}/>
+                        <MiniPalette {...pa} gotopal={()=>this.gotopal(pa.id)}/>
                     ))}
                   </div>
               </div>

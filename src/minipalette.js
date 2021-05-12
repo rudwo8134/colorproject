@@ -51,7 +51,7 @@ function MiniPalette(props){
     ))
     return(
         
-        <div className={classes.root}>
+        <div className={classes.root} onClick={props.gotopal}>
             <div className={classes.colors}>
                 {minicolor}
             </div>
