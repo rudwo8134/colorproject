@@ -55,6 +55,15 @@
     text-transform: uppercase;
     font-size: 12px;
 }
+.light-text{
+    color:white
+}
+.colorbox .see-more.dark-text{
+    color: rgba(0,0,0,0.5)
+}
+.dark-text1{
+    color: rgba(0,0,0,0.5)
+}
 .see-more{
     background: rgb(255,255,255,0.3);
     position: absolute;
