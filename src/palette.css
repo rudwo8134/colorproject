@@ -1,7 +1,21 @@
 .paletter{
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .paletter-colors{
     height: 90%;
 }
 
+.paletter-footer{
+    background-color: white;
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+.emoji{
+    font-size: 2em;
+    margin:0 1rem
+}
