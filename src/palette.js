@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import Colorbox from './colorbox'
 import Navbar from './navbar'
 import './palette.css';
-import Footer from './palettefooter'
+
 
 
 
@@ -23,7 +23,7 @@ class Palette extends Component{
         const {colors,paletteName,emoji,id} =this.props.Palette
         const {level,format} =this.state
         const colorboxes = colors[level].map((color)=>(
-            <Colorbox background={color[format]} name ={color.name} key={color.id} id={color.id} paletteId={id} moreurl={`/palette/${id}/${color.id}`} showLink={true}/>
+            <Colorbox background={color[format]} name ={color.name} key={color.id} id={color.id} paletteId={id} moreurl={`/palette/${id}/${color.id}`} showingFull={true}/>
         ))
         return(
             <div className="paletter">
@@ -35,7 +35,10 @@ class Palette extends Component{
                 {colorboxes}
                 </div>
                 {/* footer */}
-                <Footer paletteName={paletteName} emoji={emoji}/>
+                <footer className="paletter-footer">
+                {paletteName}
+            <span className="emoji">{emoji}</span>
+                </footer>
             </div>
         )
         
