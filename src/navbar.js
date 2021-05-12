@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import {Link} from 'react-router-dom'
 import 'rc-slider/assets/index.css';
 import './navbar.css';
 import Slider from 'rc-slider';
@@ -30,7 +31,7 @@ class Navbar extends Component{
       return(
           <header className="navbar">
               <div className="logo">
-                <a href="#">eric's color</a>
+                <Link to="/"><a>Eric's color</a></Link>
               </div>
 
               <div className="slider-container">
