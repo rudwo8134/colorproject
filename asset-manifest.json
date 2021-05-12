@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/colorproject/static/css/main.b7432338.chunk.css",
-    "main.js": "/colorproject/static/js/main.82d8f915.chunk.js",
-    "main.js.map": "/colorproject/static/js/main.82d8f915.chunk.js.map",
-    "runtime-main.js": "/colorproject/static/js/runtime-main.f17b0a67.js",
-    "runtime-main.js.map": "/colorproject/static/js/runtime-main.f17b0a67.js.map",
+    "main.css": "/colorproject/static/css/main.32ef6677.chunk.css",
+    "main.js": "/colorproject/static/js/main.5c9f8db6.chunk.js",
+    "main.js.map": "/colorproject/static/js/main.5c9f8db6.chunk.js.map",
+    "runtime-main.js": "/colorproject/static/js/runtime-main.752ee0df.js",
+    "runtime-main.js.map": "/colorproject/static/js/runtime-main.752ee0df.js.map",
     "static/css/2.d59c41ec.chunk.css": "/colorproject/static/css/2.d59c41ec.chunk.css",
-    "static/js/2.b57e9ce4.chunk.js": "/colorproject/static/js/2.b57e9ce4.chunk.js",
-    "static/js/2.b57e9ce4.chunk.js.map": "/colorproject/static/js/2.b57e9ce4.chunk.js.map",
-    "static/js/3.d76f1a65.chunk.js": "/colorproject/static/js/3.d76f1a65.chunk.js",
-    "static/js/3.d76f1a65.chunk.js.map": "/colorproject/static/js/3.d76f1a65.chunk.js.map",
+    "static/js/2.47f991a2.chunk.js": "/colorproject/static/js/2.47f991a2.chunk.js",
+    "static/js/2.47f991a2.chunk.js.map": "/colorproject/static/js/2.47f991a2.chunk.js.map",
+    "static/js/3.695992fe.chunk.js": "/colorproject/static/js/3.695992fe.chunk.js",
+    "static/js/3.695992fe.chunk.js.map": "/colorproject/static/js/3.695992fe.chunk.js.map",
     "index.html": "/colorproject/index.html",
     "static/css/2.d59c41ec.chunk.css.map": "/colorproject/static/css/2.d59c41ec.chunk.css.map",
-    "static/css/main.b7432338.chunk.css.map": "/colorproject/static/css/main.b7432338.chunk.css.map",
-    "static/js/2.b57e9ce4.chunk.js.LICENSE.txt": "/colorproject/static/js/2.b57e9ce4.chunk.js.LICENSE.txt"
+    "static/css/main.32ef6677.chunk.css.map": "/colorproject/static/css/main.32ef6677.chunk.css.map",
+    "static/js/2.47f991a2.chunk.js.LICENSE.txt": "/colorproject/static/js/2.47f991a2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f17b0a67.js",
+    "static/js/runtime-main.752ee0df.js",
     "static/css/2.d59c41ec.chunk.css",
-    "static/js/2.b57e9ce4.chunk.js",
-    "static/css/main.b7432338.chunk.css",
-    "static/js/main.82d8f915.chunk.js"
+    "static/js/2.47f991a2.chunk.js",
+    "static/css/main.32ef6677.chunk.css",
+    "static/js/main.5c9f8db6.chunk.js"
   ]
 }
