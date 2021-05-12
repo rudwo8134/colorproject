@@ -1,6 +1,7 @@
 import React,{Component} from "react"
 import './colorbox.css'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
+import {Link} from 'react-router-dom'
 
 class Colorbox extends Component{
     constructor(props){
@@ -14,7 +15,7 @@ class Colorbox extends Component{
         })
     }
     render(){
-        const {name,background} = this.props
+        const {name,background, paletteId,id,moreurl,showLink} = this.props
         const {copied} = this.state
         return(
             <CopyToClipboard text={background} onCopy={this.changestate}>
@@ -34,7 +35,11 @@ class Colorbox extends Component{
                             copy
                         </button>
                 </div>
+            {showLink &&(
+            <Link to={moreurl} onClick={e=> e.stopPropagation()}>
             <span className="see-more">more</span>
+            </Link>    
+            )}
             </div>
             </CopyToClipboard>
         )
