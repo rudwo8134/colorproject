@@ -29,7 +29,7 @@ class App extends Component {
   return (
     <Switch>
     <Route exact path="/" render={(routeProps)=><PaletteList palette={this.state.palettes} {...routeProps}/>}/>
-    <Route exact path="/palette/new" render={(routeProps)=><Newpalette {...routeProps} savePalette={this.savePalette}/>}/>
+    <Route exact path="/palette/new" render={(routeProps)=><Newpalette {...routeProps} palettes={this.state.palettes} savePalette={this.savePalette}/>}/>
     <Route exact path="/palette/:id" render={(routeProps)=><Palette Palette={generatePalette(this.findPallette(routeProps.match.params.id))}/>}/>
     <Route exact path="/palette/:paletteId/:colorId" render={(routeProps)=><Single colorid={routeProps.match.params.colorId}Palette={generatePalette(this.findPallette(routeProps.match.params.paletteId))}/>}/>
  

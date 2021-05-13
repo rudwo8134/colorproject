@@ -15,6 +15,8 @@ import Button from '@material-ui/core/Button'
 import { colors } from "@material-ui/core";
 import Draggable from './draggable'
 import {TextValidator, ValidatorForm} from "react-material-ui-form-validator"
+import Draggablelist from './draggablecolorlist'
+import {arrayMove} from 'react-sortable-hoc'
 
 const drawerWidth = 400;
 
@@ -84,12 +86,14 @@ class newpalette extends Component{
             open: true,
             currentColor: 'teal',
             colors:[{color: "blue", name:"blue"}],
-            newname:""
+            newColorname:"",
+            setnewname:""
         }
         this.updateCurrentColor= this.updateCurrentColor.bind(this)
         this.addnewColor= this.addnewColor.bind(this)
         this.handlechange=this.handlechange.bind(this)
         this.savePalette=this.savePalette.bind(this)
+        this.removecolor=this.removecolor.bind(this)
     }  
     componentDidMount(){
         ValidatorForm.addValidationRule("isNameUnique", value => 
@@ -100,6 +104,11 @@ class newpalette extends Component{
       ValidatorForm.addValidationRule("isColorUnique", value => 
         this.state.colors.every(
           ({ color }) => color !== this.state.currentColor
+        )
+      );
+      ValidatorForm.addValidationRule("isPaletteUnique", value => 
+        this.props.palettes.every(
+          ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
         )
       );
     }
@@ -114,18 +123,30 @@ class newpalette extends Component{
           this.setState({currentColor:newColor.hex})
       }
       addnewColor(){
-          let newColor = {color: this.state.currentColor, name:this.state.newname}
-          this.setState({colors:[...this.state.colors, newColor], newname:""})
+          let newColor = {color: this.state.currentColor, name:this.state.newColorname}
+          this.setState({colors:[...this.state.colors, newColor], newColorname:""})
       }
       handlechange(evt){
-          this.setState({newname: evt.target.value })
+          this.setState({
+              [evt.target.name]: evt.target.value
+          })
       }
       savePalette(){
-          let newname= "New  test platte"
+          let newname= this.state.setnewname
           const newPalette = {paletteName:newname,id: newname.toLowerCase().replace(/ /g, "-"), colors:this.state.colors}
           this.props.savePalette(newPalette)
           this.props.history.push("/")
       }
+      removecolor(colorname){
+        this.setState({
+            colors: this.state.colors.filter(color => color.name !== colorname)
+        })
+      }
+      onSortEnd = ({oldIndex, newIndex}) => {
+        this.setState(({colors}) => ({
+          colors: arrayMove(colors, oldIndex, newIndex),
+        }));
+      };
       render() {
         const { classes} = this.props;
         const { open } = this.state;
@@ -152,8 +173,17 @@ class newpalette extends Component{
                 <Typography variant="h6" color="inherit" noWrap>
                   Persistent drawer
                 </Typography>
-                <Button variant="contained" color="primary" onClick={this.savePalette}>Save Palette</Button>
+                <ValidatorForm onSubmit={this.savePalette}>
+               <TextValidator 
+               label="Palette Name" name="setnewname" 
+               value={this.state.setnewname} onChange={this.handlechange}
+               validators={["required","isPaletteUnique"]}
+               errorMessages={["enter palette name","palette name already use on others"]}
+               />
+               <Button variant="contained" color="primary" type="submit">Save Palette</Button>
+               </ValidatorForm>
               </Toolbar>
+
             </AppBar>
             <Drawer
               className={classes.drawer}
@@ -179,7 +209,7 @@ class newpalette extends Component{
               color={this.state.currentColor} 
               onChangeComplete={this.updateCurrentColor}/>
               <ValidatorForm onSubmit={this.addnewColor}>
-                  <TextValidator value={this.state.newname} onChange={this.handlechange}
+                  <TextValidator value={this.state.newColorname} name="newColorname" onChange={this.handlechange}
                   validators={["required","isNameUnique", "isColorUnique"]}
                   errorMessages={["Enter your color name😤", "Color name must be unique😱", "you can not add same color😥"]}/>
                   <Button variant="contained" color ="primary" style={{backgroundColor:this.state.currentColor}} type="submit">Add Color</Button>
@@ -192,9 +222,7 @@ class newpalette extends Component{
               })}
             >
               <div className={classes.drawerHeader} />
-                 {this.state.colors.map(color=>(
-                     <Draggable color={color.color} name={color.name}/>
-                 ))}
+              <Draggablelist distance={20}onSortEnd={this.onSortEnd}colors={this.state.colors} removecolor={this.removecolor} axix="xy"/>
              
             </main>
           </div>
