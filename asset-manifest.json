@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/colorproject/static/css/main.133b9489.chunk.css",
-    "main.js": "/colorproject/static/js/main.a2cf440a.chunk.js",
-    "main.js.map": "/colorproject/static/js/main.a2cf440a.chunk.js.map",
+    "main.js": "/colorproject/static/js/main.730906fb.chunk.js",
+    "main.js.map": "/colorproject/static/js/main.730906fb.chunk.js.map",
     "runtime-main.js": "/colorproject/static/js/runtime-main.b573db8e.js",
     "runtime-main.js.map": "/colorproject/static/js/runtime-main.b573db8e.js.map",
     "static/css/2.d59c41ec.chunk.css": "/colorproject/static/css/2.d59c41ec.chunk.css",
-    "static/js/2.e33cc61e.chunk.js": "/colorproject/static/js/2.e33cc61e.chunk.js",
-    "static/js/2.e33cc61e.chunk.js.map": "/colorproject/static/js/2.e33cc61e.chunk.js.map",
+    "static/js/2.e7b1d29d.chunk.js": "/colorproject/static/js/2.e7b1d29d.chunk.js",
+    "static/js/2.e7b1d29d.chunk.js.map": "/colorproject/static/js/2.e7b1d29d.chunk.js.map",
     "static/js/3.e953b8e0.chunk.js": "/colorproject/static/js/3.e953b8e0.chunk.js",
     "static/js/3.e953b8e0.chunk.js.map": "/colorproject/static/js/3.e953b8e0.chunk.js.map",
     "index.html": "/colorproject/index.html",
     "static/css/2.d59c41ec.chunk.css.map": "/colorproject/static/css/2.d59c41ec.chunk.css.map",
     "static/css/main.133b9489.chunk.css.map": "/colorproject/static/css/main.133b9489.chunk.css.map",
-    "static/js/2.e33cc61e.chunk.js.LICENSE.txt": "/colorproject/static/js/2.e33cc61e.chunk.js.LICENSE.txt"
+    "static/js/2.e7b1d29d.chunk.js.LICENSE.txt": "/colorproject/static/js/2.e7b1d29d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b573db8e.js",
     "static/css/2.d59c41ec.chunk.css",
-    "static/js/2.e33cc61e.chunk.js",
+    "static/js/2.e7b1d29d.chunk.js",
     "static/css/main.133b9489.chunk.css",
-    "static/js/main.a2cf440a.chunk.js"
+    "static/js/main.730906fb.chunk.js"
   ]
 }
