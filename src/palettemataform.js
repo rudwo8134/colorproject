@@ -7,15 +7,19 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import {Picker} from 'emoji-mart'
+import 'emoji-mart/css/emoji-mart.css'
 
 class PaletteMetaForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      stage:"form",
       newPaletteName: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.showemojipicker=this.showemojipicker.bind(this);
+    this.savePallete=this.savePallete.bind(this)
   }
   componentDidMount() {
     ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
@@ -36,25 +40,44 @@ class PaletteMetaForm extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+  showemojipicker(){
+      this.setState({stage: "emoji"})
+  }
+  savePallete(emoji){
+    const newPalette = {paletteName: this.state.newPaletteName, emoji: emoji.native}
+    this.props.handleSubmit(newPalette)
+ 
+  } 
 
   render() {
     const { newPaletteName } = this.state;
-
+    const {hideForm, handleSubmit} =this.props
     return (
+        <div>
         <Dialog
-          open={this.state.open}
+            open={this.state.stage ==='emoji'}
+            onClose={hideForm}
+        >
+        <DialogTitle id='form-dialog-title'>Eric's Picker (Emoji)</DialogTitle>
+        <Picker
+            onSelect={this.savePallete}
+            title="Choose your Emoji"
+        />
+        </Dialog>
+        <Dialog
+          open={this.state.stage ==='form'}
           onClose={this.handleClose}
           aria-labelledby='form-dialog-title'
+          onClose={hideForm}
         >
           <DialogTitle id='form-dialog-title'>Make a Palette Name</DialogTitle>
           <ValidatorForm
-              onSubmit={() => this.props.handleSubmit(newPaletteName)}
+              onSubmit={this.showemojipicker}
             >
           <DialogContent>
             <DialogContentText>
               Enter your Palette name. you are not able to make same name of Palette. make sure it is unique
             </DialogContentText>
-           
               <TextValidator
                 label='Palette Name'
                 value={newPaletteName}
@@ -69,7 +92,7 @@ class PaletteMetaForm extends Component {
             
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color='primary'>
+            <Button onClick={hideForm} color='primary'>
               Cancel
             </Button>
             <Button variant='contained' color='primary' type='submit'>
@@ -78,6 +101,7 @@ class PaletteMetaForm extends Component {
           </DialogActions>
           </ValidatorForm>
         </Dialog>
+        </div>
     );
   }
 }
